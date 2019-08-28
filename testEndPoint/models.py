@@ -11,7 +11,7 @@ class TestEndpoint(models.Model):
     int1 = models.IntegerField(default='0')
     
     def __str__(self):
-        return self.title
+        return self.id
 
     class Meta:
         ordering = ['created']
