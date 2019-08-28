@@ -1,0 +1,1 @@
+web: gunicorn Justtip.wsgi --log-file -
