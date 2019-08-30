@@ -24,10 +24,11 @@ class S_List(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class S_Detail(APIView):
-    try:
-        return TestEndpoint.objects.get(pk=pk)
-    except s.DoesNotExist:
-        raise Http404
+    def get_object(self,pk):
+        try:
+            return TestEndpoint.objects.get(pk=pk)
+        except TestEndpoint.DoesNotExist:
+            raise Http404
 
     def get(self,request,pk,format=None):
         serializer = SnippetSerializer(s)
