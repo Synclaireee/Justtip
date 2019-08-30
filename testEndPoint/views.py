@@ -25,7 +25,7 @@ class S_List(APIView):
 
 class S_Detail(APIView):
     try:
-        s = TestEndpoint.objects.get(pk=pk)
+        return TestEndpoint.objects.get(pk=pk)
     except s.DoesNotExist:
         raise Http404
 
