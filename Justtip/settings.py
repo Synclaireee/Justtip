@@ -21,6 +21,7 @@ ALLOWED_HOSTS = ['justtip.herokuapp.com']
 INSTALLED_APPS = [
     'rest_framework',
     'testEndPoint.apps.TestendpointConfig',
+    'regtest.apps.RegtestConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
