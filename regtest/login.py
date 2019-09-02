@@ -6,6 +6,7 @@ class LoginSerializer(serializers.Serializer):
     password_hash = serializers.CharField(max_length=255)
 
 class Login():
+    
     def TryLogin(s):
         userstring = s['username']
         password_hash_string = s['password_hash']

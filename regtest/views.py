@@ -54,7 +54,7 @@ class L_Detail(APIView):
     def post(self,request, format=None):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
-            s = TryLogin(serializer.data)
+            s = Login.TryLogin(serializer.data)
             if (s):
                 return Response(serializer.data)
             else:
