@@ -26,7 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
     profile_picture = serializers.CharField(max_length=None, required=False)
 
     def create(self, validated_data):
-        return TestEndpoint.objects.create(**validated_data)
+        return UserTest.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.password_hash = validated_data.get('password_hash', instance.password_hash)
