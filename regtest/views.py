@@ -49,7 +49,7 @@ class R_Detail(APIView):
         s.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class L_List(APIView):
+class L_Detail(APIView):
 
     def post(self,request, format=None):
         serializer = LoginSerializer(request.data)
