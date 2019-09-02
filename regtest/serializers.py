@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
     id = serializers.IntegerField(read_only=True)
-    created = serializers.DateTimeField()
+    created = serializers.DateTimeField(read_only=True)
     username = serializers.CharField(max_length=255)
     password_hash = serializers.CharField(max_length=255)
     email = serializers.EmailField()
