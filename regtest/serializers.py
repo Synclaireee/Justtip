@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from regtest.models import UserTest
+from rest_framework.validators import UniqueValidator
 
 
 class UserSerializer(serializers.ModelSerializer):
