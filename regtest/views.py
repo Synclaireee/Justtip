@@ -12,7 +12,7 @@ from django.http import Http404
 
 class R_List(APIView):
     def get(self,request, format=None):
-        s = regtest.objects.all()
+        s = UserTest.objects.all()
         serializer = UserSerializer(s, many=True)
         return Response(serializer.data)
 
