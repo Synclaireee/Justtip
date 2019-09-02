@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = UserTest
-        fields = ['id', 'created', 'username', 'password_hash', 'email', 'phone_number', 'first_name', 'last_name', 'description', 'verification_status']
+        fields = ['id', 'created', 'username', 'password_hash', 'email', 'phone_number', 'first_name', 'last_name', 'description', 'verification_status','profile_picture']
         validators = UniqueTogetherValidator(
             queryset = UserTest.objects.all(),
             fields = ['username','email','phone_number']
