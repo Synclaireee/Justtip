@@ -19,11 +19,11 @@ class UserSerializer(serializers.ModelSerializer):
     password_hash = serializers.CharField(max_length=255)
     email = serializers.EmailField()
     phone_number = serializers.CharField(max_length=255)
-    first_name = serializers.CharField(max_length=255)
-    last_name = serializers.CharField(max_length=255)
-    description = serializers.CharField(max_length=255)
+    first_name = serializers.CharField(max_length=255, allow_blank=True)
+    last_name = serializers.CharField(max_length=255, allow_blank=True)
+    description = serializers.CharField(max_length=255, allow_blank=True)
     verification_status = serializers.CharField(max_length=255)
-    profile_picture = serializers.CharField(max_length=None)
+    profile_picture = serializers.CharField(max_length=None, allow_blank=True)
 
     def create(self, validated_data):
         return TestEndpoint.objects.create(**validated_data)
