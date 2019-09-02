@@ -53,6 +53,6 @@ class L_List(APIView):
 
     def post(self,request, format=None):
         serializer = LoginSerializer(request.data)
-         if serializer.is_valid():
+        if serializer.is_valid():
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
