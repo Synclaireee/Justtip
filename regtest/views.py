@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from regtest.models import UserTest
 from regtest.serializers import UserSerializer
+from regtest.login import Login, LoginSerializer
 from django.http import Http404
 
 
@@ -47,3 +48,11 @@ class R_Detail(APIView):
         s = self.get_object(pk)
         s.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class L_List(APIView):
+
+    def post(self,request, format=None):
+        serializer = LoginSerializer(request.data)
+         if serializer.is_valid():
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
