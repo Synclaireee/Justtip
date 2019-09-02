@@ -36,6 +36,7 @@ class R_Detail(APIView):
         return Response(serializer.data)
 
     def put(self,request,pk,format=None):
+        s = self.get_object(pk)
         serializer = UserSerializer(s, data=request.data,partial=True)
         if serializer.is_valid():
             serializer.save()
@@ -43,5 +44,6 @@ class R_Detail(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self,request,pk,format=None):
+        s = self.get_object(pk)
         s.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

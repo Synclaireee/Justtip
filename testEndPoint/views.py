@@ -44,5 +44,6 @@ class S_Detail(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self,request,pk,format=None):
+        s = self.get_object(pk)
         s.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
