@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
     last_name = serializers.CharField(max_length=255)
     description = serializers.CharField(max_length=255)
     verification_status = serializers.CharField(max_length=255)
-    profile_picture = serializers.TextField()
+    profile_picture = serializers.CharField(max_length=None)
 
     def create(self, validated_data):
         return TestEndpoint.objects.create(**validated_data)
