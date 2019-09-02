@@ -34,6 +34,6 @@ class UserSerializer(serializers.ModelSerializer):
         instance.last_name = validated_data.get('last_name', instance.last_name)
         instance.description = validated_data.get('description', instance.description)
         instance.verification_status = validated_data.get('verification_status', instance.verification_status)
-        instance.profile_picture = validated_data.get('profile_picture'), instance.profile_picture)
+        instance.profile_picture = validated_data.get('profile_picture', instance.profile_picture)
         instance.save()
         return instance
