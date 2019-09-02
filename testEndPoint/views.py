@@ -31,6 +31,7 @@ class S_Detail(APIView):
             raise Http404
 
     def get(self,request,pk,format=None):
+        s = self.get_object(pk)
         serializer = SnippetSerializer(s)
         return Response(serializer.data)
 
