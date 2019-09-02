@@ -54,5 +54,9 @@ class L_Detail(APIView):
     def post(self,request, format=None):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
-            return Response(serializer.data)
+            s = TryLogin(serializer.data)
+            if (s):
+                return Response(serializer.data)
+            else:
+                raise Http404
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
